@@ -1,0 +1,43 @@
+{
+  "name": "oathe-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Oathe AI security audits — check trust scores before installing MCP servers, plugins, or AI agent skills",
+  "type": "module",
+  "bin": {
+    "oathe-mcp": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "files": [
+    "dist/**",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.26.0",
+    "zod": "^3.25"
+  },
+  "devDependencies": {
+    "typescript": "^5.7",
+    "@types/node": "^22.0.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oathe-ai/oathe-mcp"
+  },
+  "keywords": [
+    "mcp",
+    "oathe",
+    "security",
+    "audit",
+    "ai-safety",
+    "model-context-protocol"
+  ]
+}
