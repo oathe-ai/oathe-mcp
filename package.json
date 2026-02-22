@@ -1,6 +1,6 @@
 {
   "name": "oathe-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP server for Oathe AI security audits — check trust scores before installing MCP servers, plugins, or AI agent skills",
   "type": "module",
   "bin": {
@@ -38,6 +38,12 @@
     "security",
     "audit",
     "ai-safety",
-    "model-context-protocol"
+    "model-context-protocol",
+    "trust-score",
+    "behavioral-security",
+    "pre-install-check",
+    "agent-safety",
+    "mcp-server",
+    "ai-agent"
   ]
 }

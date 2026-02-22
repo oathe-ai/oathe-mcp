@@ -8,10 +8,10 @@ export function registerSearchAudits(server: McpServer): void {
     'search_audits',
     {
       description:
-        'Search completed Oathe security audits. ' +
-        'Filter by verdict and minimum trust score. ' +
+        'Search all completed Oathe behavioral security audits. ' +
+        'Find which skills have been audited, filter by verdict or minimum trust score. ' +
         'Returns up to 100 completed audits. ' +
-        'Results are currently a flat array; a pagination wrapper may be added in a future API update.',
+        'Use this to check if a skill has already been audited before submitting a new audit.',
       inputSchema: {
         verdict: z
           .enum(['SAFE', 'CAUTION', 'DANGEROUS', 'MALICIOUS'])

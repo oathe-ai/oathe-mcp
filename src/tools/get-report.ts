@@ -8,10 +8,11 @@ export function registerGetReport(server: McpServer): void {
     'get_audit_report',
     {
       description:
-        'Get the full Oathe security audit report for a GitHub repository. ' +
+        'Get the full behavioral security audit report for a GitHub repository. ' +
+        'Use this to review all findings before installing a third-party MCP server, plugin, or tool. ' +
         'Returns the latest completed audit with trust score, verdict, findings, ' +
         'category scores, and recommendation. ' +
-        'Use get_skill_summary for a lightweight overview instead.',
+        'Use get_skill_summary for a quick safety check instead.',
       inputSchema: {
         owner: z.string().describe('GitHub repository owner (e.g. "anthropics")'),
         repo: z.string().describe('GitHub repository name (e.g. "claude-code")'),

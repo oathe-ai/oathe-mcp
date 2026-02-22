@@ -8,10 +8,11 @@ export function registerCheckStatus(server: McpServer): void {
     'check_audit_status',
     {
       description:
-        'Check the status of an Oathe security audit. ' +
+        'Check the status of an Oathe security audit submitted via submit_audit. ' +
         'Poll every 5 seconds until status is "complete" or "failed". ' +
+        'Statuses: queued, scanning, analyzing, summarizing, finalizing, complete, failed. ' +
         'Terminal statuses: complete, failed. ' +
-        'When complete, the response includes the full audit report.',
+        'When complete, the response includes the full audit report with trust score, verdict, and findings.',
       inputSchema: {
         audit_id: z
           .string()

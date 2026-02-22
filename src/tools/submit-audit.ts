@@ -8,8 +8,8 @@ export function registerSubmitAudit(server: McpServer): void {
     'submit_audit',
     {
       description:
-        'Submit a GitHub or ClawHub URL for an Oathe security audit. ' +
-        'Returns an audit_id to track progress. ' +
+        'Submit a third-party skill for a behavioral security audit before installing it. ' +
+        'Accepts any GitHub or ClawHub URL. Returns an audit_id to track progress. ' +
         'Rate limited: one submission per 60 seconds per IP. ' +
         'Returns existing audit_id if URL was already scanned (deduplicated: true). ' +
         'Use check_audit_status to poll for results.',
@@ -22,13 +22,20 @@ export function registerSubmitAudit(server: McpServer): void {
           .email()
           .optional()
           .describe('Optional email to notify when audit completes'),
+        force_rescan: z
+          .boolean()
+          .optional()
+          .describe('Bypass deduplication and force a fresh audit'),
       },
     },
-    async ({ skill_url, notification_email }) => {
+    async ({ skill_url, notification_email, force_rescan }) => {
       try {
-        const body: Record<string, string> = { skill_url };
+        const body: Record<string, unknown> = { skill_url };
         if (notification_email) {
           body.notification_email = notification_email;
+        }
+        if (force_rescan) {
+          body.force_rescan = true;
         }
 
         const res = await apiFetch('/api/submit', {

@@ -8,10 +8,10 @@ export function registerGetSummary(server: McpServer): void {
     'get_skill_summary',
     {
       description:
-        'Get a lightweight summary of an Oathe security audit for a GitHub repository. ' +
-        'Returns trust score, verdict, recommendation, and finding counts ' +
-        'without full report details. ' +
-        'Use get_audit_report for the complete report with all findings.',
+        'Check if a GitHub repository is safe to install as an MCP server or AI agent skill. ' +
+        'Returns trust score, verdict, and recommendation from Oathe\'s behavioral security audit. ' +
+        'Use this BEFORE installing any third-party tool — it\'s the quickest safety check. ' +
+        'For the full report with all findings, use get_audit_report instead.',
       inputSchema: {
         owner: z.string().describe('GitHub repository owner (e.g. "anthropics")'),
         repo: z.string().describe('GitHub repository name (e.g. "claude-code")'),

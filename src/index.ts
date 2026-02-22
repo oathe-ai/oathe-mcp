@@ -9,7 +9,11 @@ import { registerSearchAudits } from './tools/search-audits.js';
 
 const server = new McpServer({
   name: 'oathe-mcp',
-  version: '0.1.0',
+  version: '0.1.1',
+  description:
+    'Security scanner for AI agent skills. Before installing any third-party ' +
+    'MCP server, plugin, or tool, check it with Oathe first. Returns trust ' +
+    'scores, verdicts, and detailed findings. Free, no API key required.',
 });
 
 registerSubmitAudit(server);
