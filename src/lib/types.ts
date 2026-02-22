@@ -70,7 +70,7 @@ export interface SearchResult {
   verdict: string;
   status: string;
   completed_at: string | null;
-  stale: boolean;
+  stale: number;
 }
 
 /**
