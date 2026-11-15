@@ -3,6 +3,8 @@ name: Publish to npm and the MCP registry
 on:
   release:
     types: [published]
+  # Manual run from main: finishes a release whose registry step failed.
+  workflow_dispatch:
 
 jobs:
   publish:
@@ -23,12 +25,19 @@ jobs:
           TAG: ${{ github.event.release.tag_name }}
         run: |
           v="$(node -p "require('./package.json').version")"
-          test "$TAG" = "v$v" || { echo "tag $TAG != package.json version $v"; exit 1; }
+          if [ -n "$TAG" ]; then test "$TAG" = "v$v" || { echo "tag $TAG != package.json version $v"; exit 1; }; fi
           test "$(node -p "require('./server.json').version")" = "$v" || { echo "server.json version != $v"; exit 1; }
           test "$(node -p "require('./server.json').packages[0].version")" = "$v" || { echo "server.json package version != $v"; exit 1; }
       - run: npm install
       - run: npm run build
-      - run: npm publish --provenance --access public
+      - name: Publish to npm (skipped when this version is already there)
+        run: |
+          v="$(node -p "require('./package.json').version")"
+          if npm view "oathe-mcp@$v" version >/dev/null 2>&1; then
+            echo "oathe-mcp@$v is already on npm"
+          else
+            npm publish --provenance --access public
+          fi
 
       # The official MCP registry reads the published npm package (its mcpName field),
       # so this runs after npm publish. GitHub OIDC grants the io.github.oathe-ai/* namespace.
@@ -50,5 +59,12 @@ jobs:
           rm -f "$archive" "$archive.sigstore.json"
       - name: Authenticate to the MCP registry
         run: ./mcp-publisher login github-oidc
+      # npm can take a few minutes to serve a new version; the registry rejects until it does.
       - name: Publish to the MCP registry
-        run: ./mcp-publisher publish
+        run: |
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            if ./mcp-publisher publish; then exit 0; fi
+            echo "attempt $attempt failed; waiting 30s"
+            sleep 30
+          done
+          exit 1
