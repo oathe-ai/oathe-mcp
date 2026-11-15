@@ -1,7 +1,7 @@
 {
   "name": "oathe-mcp",
   "version": "0.1.1",
-  "description": "MCP server for Oathe AI security audits — check trust scores before installing MCP servers, plugins, or AI agent skills",
+  "description": "The Oathe Scan MCP. Oathe Scan is the audit engine of the Oathe runtime: check any skill before your agent installs it.",
   "author": "Oathe Inc. (https://oathe.ai)",
   "homepage": "https://oathe.ai",
   "type": "module",
