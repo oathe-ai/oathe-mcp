@@ -9,7 +9,7 @@ import { registerSearchAudits } from './tools/search-audits.js';
 
 const server = new McpServer({
   name: 'oathe-mcp',
-  version: '0.1.1',
+  version: '0.1.2',
   description:
     'The Oathe Scan MCP. Oathe Scan is the audit engine of the Oathe runtime. ' +
     'Before installing any third-party ' +
