@@ -1,6 +1,8 @@
 # oathe-mcp
 
-MCP server for [Oathe](https://oathe.ai) AI security audits. Check trust scores before installing MCP servers, plugins, or AI agent skills.
+The Oathe Scan MCP. Oathe Scan is the audit engine of the [Oathe](https://oathe.ai) runtime: check any skill before your agent installs it.
+
+The runtime is a separate package: `npm install -g @oathe/oathe` ([oathe-ai/oathe](https://github.com/oathe-ai/oathe)).
 
 ## Quick Start
 
