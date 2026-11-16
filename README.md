@@ -2,7 +2,7 @@
 
 Installing a skill for your AI agent? Oathe Scan checks what it actually does before you install it.
 
-`oathe-mcp` is the MCP server for [Oathe Scan](https://oathe.ai/scan/). Your agent can look up a skill, MCP server or plugin, or submit one for an audit, and get back a trust score, a verdict and findings. Free. No account needed for 10 scans a month.
+`oathe-mcp` is the MCP server for [Oathe Scan](https://oathe.ai/scan/). Your agent can look up a skill, MCP server or plugin, or submit one for an audit, and get back a trust score, a verdict and findings. Free. No account needed for 10 scans a month. Set `OATHE_API_KEY` to a free API key for 200.
 
 ## Quick start
 
@@ -10,7 +10,7 @@ Installing a skill for your AI agent? Oathe Scan checks what it actually does be
 npx oathe-mcp
 ```
 
-Needs Node 18 or later. No configuration.
+Needs Node 18 or later. Nothing to configure. An API key is optional.
 
 ## Add it to your agent
 
@@ -29,15 +29,35 @@ Add to your `claude_desktop_config.json`:
 }
 ```
 
+Optional. If you have a free API key, pass it in `env`:
+
+```json
+{
+  "mcpServers": {
+    "oathe-scan": {
+      "command": "npx",
+      "args": ["-y", "oathe-mcp"],
+      "env": { "OATHE_API_KEY": "your-api-key" }
+    }
+  }
+}
+```
+
 ### Claude Code
 
 ```bash
 claude mcp add oathe-scan -- npx -y oathe-mcp
 ```
 
+Optional. With a free API key:
+
+```bash
+claude mcp add oathe-scan -e OATHE_API_KEY=your-api-key -- npx -y oathe-mcp
+```
+
 ### Other MCP clients
 
-Any client that runs a local MCP server over stdio uses the same command: `npx -y oathe-mcp`.
+Any client that runs a local MCP server over stdio uses the same command: `npx -y oathe-mcp`. To use an API key, set `OATHE_API_KEY` in the environment the client gives the server.
 
 We name it `oathe-scan` so it doesn't collide with `oathe`, the MCP server that [Oathe](https://github.com/oathe-ai/oathe) sets up.
 
@@ -53,7 +73,7 @@ Submit a GitHub or ClawHub URL for an audit.
 
 Returns an `audit_id` to track progress. Optional: `notification_email`, `force_rescan`.
 
-One submission per 60 seconds, and 10 scans a month without an account. A free API key gives you 200 a month on the [API](https://oathe.ai/docs/rate-limits/). This server doesn't send a key yet, so it submits without an account.
+One submission per 60 seconds. No account needed for 10 scans a month. Set `OATHE_API_KEY` to a free API key for 200 a month. [Sign up](https://oathe.ai/signup/) to get one. More on [rate limits](https://oathe.ai/docs/rate-limits/).
 
 ### check_audit_status
 
@@ -100,6 +120,9 @@ Returns up to 100 results.
 | Environment Variable | Default | Description |
 |---------------------|---------|-------------|
 | `OATHE_API_BASE` | `https://audit-engine.oathe.ai` | Override the API base URL |
+| `OATHE_API_KEY` | none | Optional. A free API key. Scans count against 200 a month instead of 10 |
+
+Without `OATHE_API_KEY` the server sends no key and you get 10 scans a month. With it, each request carries `Authorization: Bearer <key>`. Get a free key at [oathe.ai/signup](https://oathe.ai/signup/). The server never prints the key.
 
 An invalid `OATHE_API_BASE` stops the server at startup with an error that names the value.
 

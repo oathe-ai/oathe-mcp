@@ -14,7 +14,8 @@ const server = new McpServer({
     'The Oathe Scan MCP. Oathe Scan checks what an AI agent skill actually does ' +
     'before you install it. Before installing any third-party skill, MCP server, ' +
     'plugin, or tool, check it with Oathe Scan first. Returns trust scores, ' +
-    'verdicts, and detailed findings. Free. No account needed for 10 scans a month.',
+    'verdicts, and detailed findings. Free. No account needed for 10 scans a month. ' +
+    'Set OATHE_API_KEY to a free API key for 200 a month (sign up at https://oathe.ai/signup/).',
 });
 
 registerSubmitAudit(server);

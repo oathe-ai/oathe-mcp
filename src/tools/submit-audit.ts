@@ -10,8 +10,8 @@ export function registerSubmitAudit(server: McpServer): void {
       description:
         'Submit a third-party skill for an Oathe Scan behavioral security audit before installing it. ' +
         'Accepts any GitHub or ClawHub URL. Returns an audit_id to track progress. ' +
-        'One submission per 60 seconds. 10 scans a month without an account. ' +
-        'This server submits without an API key. ' +
+        'One submission per 60 seconds. No account needed for 10 scans a month. ' +
+        'Set OATHE_API_KEY to a free API key for 200 a month (sign up at https://oathe.ai/signup/). ' +
         'Returns existing audit_id if URL was already scanned (deduplicated: true). ' +
         'Use check_audit_status to poll for results.',
       inputSchema: {

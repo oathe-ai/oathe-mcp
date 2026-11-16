@@ -14,6 +14,10 @@ const BASE_URL = (() => {
   return 'https://audit-engine.oathe.ai';
 })();
 
+// Optional. A free API key raises the monthly scan allowance. It's only ever
+// sent to the API as a header: never log it or put it in an error message.
+const API_KEY = process.env.OATHE_API_KEY?.trim() ?? '';
+
 export class ApiError extends Error {
   constructor(
     message: string,
@@ -41,6 +45,7 @@ export async function apiFetch(
       signal: init?.signal ?? AbortSignal.timeout(30_000),
       headers: {
         'Content-Type': 'application/json',
+        ...(API_KEY ? { Authorization: `Bearer ${API_KEY}` } : {}),
         ...init?.headers,
       },
     });
