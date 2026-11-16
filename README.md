@@ -53,7 +53,7 @@ Submit a GitHub or ClawHub URL for an audit.
 
 Returns an `audit_id` to track progress. Optional: `notification_email`, `force_rescan`.
 
-Rate limited per IP: one submission per 60 seconds, and 75 per 5 hours.
+Rate limited: one submission per 60 seconds per IP.
 
 ### check_audit_status
 

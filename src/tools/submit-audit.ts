@@ -10,7 +10,7 @@ export function registerSubmitAudit(server: McpServer): void {
       description:
         'Submit a third-party skill for an Oathe Scan behavioral security audit before installing it. ' +
         'Accepts any GitHub or ClawHub URL. Returns an audit_id to track progress. ' +
-        'Rate limited per IP: one submission per 60 seconds, and 75 per 5 hours. ' +
+        'Rate limited: one submission per 60 seconds per IP. ' +
         'Returns existing audit_id if URL was already scanned (deduplicated: true). ' +
         'Use check_audit_status to poll for results.',
       inputSchema: {
@@ -54,7 +54,7 @@ export function registerSubmitAudit(server: McpServer): void {
               content: [
                 {
                   type: 'text' as const,
-                  text: 'Rate limited. Wait at least 60 seconds before you submit again. The limit per IP is one submission per 60 seconds, and 75 per 5 hours.',
+                  text: 'Rate limited. Wait at least 60 seconds before you submit again.',
                 },
               ],
               isError: true,
