@@ -11,10 +11,10 @@ const server = new McpServer({
   name: 'oathe-mcp',
   version: '0.1.2',
   description:
-    'The Oathe Scan MCP. Oathe Scan is the audit engine of the Oathe runtime. ' +
-    'Before installing any third-party ' +
-    'MCP server, plugin, or tool, check it with Oathe first. Returns trust ' +
-    'scores, verdicts, and detailed findings. Free, no API key required.',
+    'The Oathe Scan MCP. Oathe Scan checks what an AI agent skill actually does ' +
+    'before you install it. Before installing any third-party skill, MCP server, ' +
+    'plugin, or tool, check it with Oathe Scan first. Returns trust scores, ' +
+    'verdicts, and detailed findings. Free, no API key required.',
 });
 
 registerSubmitAudit(server);

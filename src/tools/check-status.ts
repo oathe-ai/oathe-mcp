@@ -8,7 +8,7 @@ export function registerCheckStatus(server: McpServer): void {
     'check_audit_status',
     {
       description:
-        'Check the status of an Oathe security audit submitted via submit_audit. ' +
+        'Check the status of an Oathe Scan audit submitted via submit_audit. ' +
         'Wait 90 seconds after submission before first poll, then poll every 10 seconds until status is "complete" or "failed". ' +
         'Statuses: queued, scanning, analyzing, summarizing, finalizing, complete, failed. ' +
         'Terminal statuses: complete, failed. ' +
@@ -33,7 +33,7 @@ export function registerCheckStatus(server: McpServer): void {
               content: [
                 {
                   type: 'text' as const,
-                  text: 'Audit ID not found — may have expired or be invalid.',
+                  text: 'Audit ID not found. It may have expired or be invalid.',
                 },
               ],
               isError: true,

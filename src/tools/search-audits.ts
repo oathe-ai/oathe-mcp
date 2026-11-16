@@ -8,7 +8,7 @@ export function registerSearchAudits(server: McpServer): void {
     'search_audits',
     {
       description:
-        'Search all completed Oathe behavioral security audits. ' +
+        'Search all completed Oathe Scan behavioral security audits. ' +
         'Find which skills have been audited, filter by verdict or minimum trust score. ' +
         'Returns up to 100 completed audits. ' +
         'Use this to check if a skill has already been audited before submitting a new audit.',
