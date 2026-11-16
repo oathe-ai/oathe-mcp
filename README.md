@@ -2,7 +2,7 @@
 
 Installing a skill for your AI agent? Oathe Scan checks what it actually does before you install it.
 
-`oathe-mcp` is the MCP server for [Oathe Scan](https://oathe.ai/scan/). Your agent can look up a skill, MCP server or plugin, or submit one for an audit, and get back a trust score, a verdict and findings. Free, no API key.
+`oathe-mcp` is the MCP server for [Oathe Scan](https://oathe.ai/scan/). Your agent can look up a skill, MCP server or plugin, or submit one for an audit, and get back a trust score, a verdict and findings. Free. No account needed for 10 scans a month.
 
 ## Quick start
 
@@ -10,7 +10,7 @@ Installing a skill for your AI agent? Oathe Scan checks what it actually does be
 npx oathe-mcp
 ```
 
-Needs Node 18 or later. No API key and no configuration.
+Needs Node 18 or later. No configuration.
 
 ## Add it to your agent
 
@@ -53,7 +53,7 @@ Submit a GitHub or ClawHub URL for an audit.
 
 Returns an `audit_id` to track progress. Optional: `notification_email`, `force_rescan`.
 
-Rate limited: one submission per 60 seconds per IP.
+One submission per 60 seconds, and 10 scans a month without an account. A free API key gives you 200 a month on the [API](https://oathe.ai/docs/rate-limits/). This server doesn't send a key yet, so it submits without an account.
 
 ### check_audit_status
 
