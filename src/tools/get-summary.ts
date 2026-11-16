@@ -9,8 +9,8 @@ export function registerGetSummary(server: McpServer): void {
     {
       description:
         'Check if a GitHub repository is safe to install as an MCP server or AI agent skill. ' +
-        'Returns trust score, verdict, and recommendation from Oathe\'s behavioral security audit. ' +
-        'Use this BEFORE installing any third-party tool — it\'s the quickest safety check. ' +
+        'Returns trust score, verdict, and recommendation from Oathe Scan\'s behavioral security audit. ' +
+        'Use this BEFORE installing any third-party tool. It\'s the quickest safety check. ' +
         'For the full report with all findings, use get_audit_report instead.',
       inputSchema: {
         owner: z.string().describe('GitHub repository owner (e.g. "anthropics")'),

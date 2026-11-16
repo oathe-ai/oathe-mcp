@@ -8,7 +8,7 @@ export function registerGetReport(server: McpServer): void {
     'get_audit_report',
     {
       description:
-        'Get the full behavioral security audit report for a GitHub repository. ' +
+        'Get the full Oathe Scan behavioral security audit report for a GitHub repository. ' +
         'Use this to review all findings before installing a third-party MCP server, plugin, or tool. ' +
         'Returns the latest completed audit with trust score, verdict, findings, ' +
         'category scores, and recommendation. ' +

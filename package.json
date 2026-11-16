@@ -2,7 +2,7 @@
   "name": "oathe-mcp",
   "version": "0.1.2",
   "mcpName": "io.github.oathe-ai/oathe-mcp",
-  "description": "The Oathe Scan MCP. Oathe Scan is the audit engine of the Oathe runtime: check any skill before your agent installs it.",
+  "description": "The Oathe Scan MCP. Installing a skill for your AI agent? Oathe Scan checks what it actually does before you install it.",
   "author": "Oathe Inc. (https://oathe.ai)",
   "homepage": "https://oathe.ai",
   "type": "module",
@@ -38,6 +38,8 @@
   "keywords": [
     "mcp",
     "oathe",
+    "oathe-scan",
+    "agent-skills",
     "security",
     "audit",
     "ai-safety",
