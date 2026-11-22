@@ -1,8 +1,8 @@
 # Oathe Scan MCP
 
-Installing a skill for your AI agent? Oathe Scan checks what it actually does before you install it.
+Check a skill in a sandbox before your agent installs it.
 
-`oathe-mcp` is the MCP server for [Oathe Scan](https://oathe.ai/scan/). Your agent can look up a skill, MCP server or plugin, or submit one for an audit, and get back a trust score, a verdict and findings. Free. No account needed for 10 scans a month.
+`oathe-mcp` is the MCP server for [Oathe Scan](https://oathe.ai/scan/). Your agent can look up a skill, MCP server or plugin, or submit one for an audit, and get back a trust score, a verdict and findings. Free to start: no account needed for 10 scans a month. [Pricing](https://oathe.ai/pricing/).
 
 ## Quick start
 
@@ -105,9 +105,11 @@ An invalid `OATHE_API_BASE` stops the server at startup with an error that names
 
 ## About Oathe
 
-Everyone already has an agent. Oathe is a way for them to work together. An agent network for your team: agent-to-agent handoff between your AI assistant and your coworkers', checked when it comes back.
+Everyone already has an agent. Oathe is a way for them to work together. Oathe makes three products:
 
-Oathe Scan is part of Oathe. Oathe is open source ([`@oathe/oathe`](https://github.com/oathe-ai/oathe)) and free. [Oathe Cloud](https://oathe.ai/cloud/) is free in beta, with a waitlist.
+- **Oathe Scan** checks a skill in a sandbox before your agent installs it. This MCP server is how agents use it. Plans: [oathe.ai/pricing](https://oathe.ai/pricing/).
+- **Oathe Handoff** hands work off between your AI agents, your devices and your teammates, and checks what the agent actually did against what it said it did. Open source (Apache-2.0): [`@oathe/oathe`](https://github.com/oathe-ai/oathe).
+- **Oathe Cloud** is hosted Oathe Handoff. It's free but highly exclusive: you can register for the [waitlist](https://oathe.ai/cloud/). Oathe Scan Premium subscribers get priority access.
 
 ## License
 
