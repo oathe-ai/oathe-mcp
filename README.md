@@ -1,5 +1,7 @@
 # Oathe Scan MCP
 
+[![oathe-mcp MCP server](https://glama.ai/mcp/servers/oathe-ai/oathe-mcp/badges/score.svg)](https://glama.ai/mcp/servers/oathe-ai/oathe-mcp)
+
 Check a skill in a sandbox before your agent installs it.
 
 `oathe-mcp` is the MCP server for [Oathe Scan](https://oathe.ai/scan/). Your agent can look up a skill, MCP server or plugin, or submit one for an audit, and get back a trust score, a verdict and findings. Free to start: no account needed for 10 scans a month. [Pricing](https://oathe.ai/pricing/).
